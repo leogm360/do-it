@@ -16,7 +16,7 @@ export const RootVariables = createGlobalStyle`
     :root {
         --color-primary: #F1EDE0;
         --color-secondary: #0C0D0D;
-        --color-secondary-2: #121212
+        --color-secondary-2: #121212;
         --white: #F5F5F5;
         --orange: #C85311;
         --grey: #4E5555;
