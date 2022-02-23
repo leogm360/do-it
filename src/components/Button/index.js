@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
   font-family: ${(props) =>
     props.fontSchema === "roboto" ? "Roboto Mono" : "PT Serif"};
-  font-size: var(--title-3);
+  font-size: var(--body-1);
   background: ${(props) =>
     props.colorSchema === "white" ? "var(--white)" : "var(--color-secondary)"};
   color: ${(props) =>

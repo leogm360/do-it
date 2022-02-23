@@ -24,10 +24,10 @@ export const RootVariables = createGlobalStyle`
         --roboto-mono: 'Roboto Mono', sans-serif;
         --pt-serif: 'PT Serif', serif;
 
-        --title-1: 2rem;
-        --title-2: calc(var(--title-1) - 0.5);
-        --title-3: calc(var(--title-2) - 0.5);
-        --body-1: calc(var(--title-3) - 0.25);
-        --caption:calc(var(--body-1) - 0.15);
+        --title-1: 3rem;
+        --title-2: calc(var(--title-1) - 0.5rem);
+        --title-3: calc(var(--title-2) - 0.5rem);
+        --body-1: calc(var(--title-3) - 0.75rem);
+        --caption:calc(var(--body-1) - 0.5rem);
     }
 `;
