@@ -7,7 +7,7 @@ import {
   Paragraph,
   Link,
 } from "./index";
-import { FiUser, FiMail, FiLock } from "react-icons/fi";
+import { FiMail, FiLock } from "react-icons/fi";
 import Input from "../../components/Input/index.jsx";
 import Button from "../../components/Button/index.jsx";
 

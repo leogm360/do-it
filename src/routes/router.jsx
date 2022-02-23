@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home/index.jsx";
 import Signup from "../pages/Signup/index.jsx";
 import Login from "../pages/Login/index.jsx";
+import Dashboard from "../pages/Dashboard/index.jsx";
 
 const Router = () => {
   return (
@@ -19,7 +20,9 @@ const Router = () => {
         <Login />
       </Route>
 
-      <Route path="/dashboard"></Route>
+      <Route path="/dashboard">
+        <Dashboard />
+      </Route>
     </Switch>
   );
 };
