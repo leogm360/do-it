@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
-import { FiUser, FiMail, FiLock } from "react-icons/fi";
 
 import Home from "../pages/Home/index.jsx";
+import Signup from "../pages/Signup/index.jsx";
 
 const Router = () => {
   return (
@@ -10,7 +10,9 @@ const Router = () => {
         <Home />
       </Route>
 
-      <Route path="/signup"></Route>
+      <Route path="/signup">
+        <Signup />
+      </Route>
 
       <Route path="/login"></Route>
 

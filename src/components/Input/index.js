@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div``;
 
 export const LabelStyles = styled.div`
-  font-size: var(--title-2);
+  text-align: left;
+  font-size: var(--body-1);
   margin-bottom: 15px;
 `;
 
@@ -29,10 +30,11 @@ export const ContainerInput = styled.div`
 
 export const InputStyles = styled.input`
   flex: 1;
-  font-size: var(--title-2);
+  font-size: var(--body-1);
   font-family: var(--pt-serif);
   background: var(--white);
-  padding-left: 10px;
+  width: 50px;
+  padding: 0 10px;
   height: 100%;
   transition: 0.5s;
 

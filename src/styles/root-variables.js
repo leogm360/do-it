@@ -28,6 +28,6 @@ export const RootVariables = createGlobalStyle`
         --title-2: calc(var(--title-1) - 0.5rem);
         --title-3: calc(var(--title-2) - 0.5rem);
         --body-1: calc(var(--title-3) - 0.75rem);
-        --caption:calc(var(--body-1) - 0.5rem);
+        --caption:calc(var(--body-1) - 0.15rem);
     }
 `;

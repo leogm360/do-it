@@ -27,6 +27,7 @@ export const Reset = createGlobalStyle`
         vertical-align: baseline;
         list-style: none;
         box-sizing: border-box;
+        text-decoration: none;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
