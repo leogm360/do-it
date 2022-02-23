@@ -2,6 +2,7 @@ import {
   Container,
   Ilustration,
   Section,
+  Title,
   Form,
   Paragraph,
   Link,
@@ -15,14 +16,16 @@ const Signup = () => {
     <Container>
       <Ilustration />
       <Section>
+        <Title>Cadastro</Title>
+
         <Form>
           <Input name={"Nome"} icon={FiUser} />
 
-          <Input name={"Email"} icon={FiMail} />
+          <Input name={"Email"} icon={FiMail} type="email" />
 
-          <Input name={"Senha"} icon={FiLock} />
+          <Input name={"Senha"} icon={FiLock} type="password" />
 
-          <Input name={"Confirmação da senha"} icon={FiLock} />
+          <Input name={"Confirmação da senha"} icon={FiLock} type="password" />
 
           <Button type="submit">Enviar</Button>
         </Form>

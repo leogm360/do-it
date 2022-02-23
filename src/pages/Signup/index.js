@@ -25,6 +25,11 @@ export const Section = styled.section`
   gap: 35px 0;
 `;
 
+export const Title = styled.h1`
+  font-family: "Roboto Mono";
+  font-size: var(--title-1);
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-flow: column nowrap;
@@ -44,6 +49,7 @@ export const Form = styled.form`
 
 export const Paragraph = styled.p`
   font-size: var(--caption);
+  font-family: "Roboto Mono";
 `;
 
 export const Link = styled(Anchor)`

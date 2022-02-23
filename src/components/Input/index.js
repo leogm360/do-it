@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+`;
 
 export const LabelStyles = styled.div`
   text-align: left;
@@ -16,7 +19,6 @@ export const ContainerInput = styled.div`
   background: var(--white);
   border: 1px solid var(--color-secondary);
   border-radius: 10px;
-  max-width: 340px;
   height: 50px;
   padding: 5px;
   gap: 0 5px;
