@@ -1,14 +1,23 @@
-import { Container, LabelStyles, ContainerInput, InputStyles } from "./index";
+import {
+  Container,
+  LabelStyles,
+  Span,
+  ContainerInput,
+  InputStyles,
+} from "./index";
 
-const Input = ({ name, icon: Icon, ...rest }) => {
+const Input = ({ name, icon: Icon, inputName, register, errors, ...rest }) => {
   return (
     <Container>
-      <LabelStyles>{name}</LabelStyles>
+      <LabelStyles>
+        {name}
+        <Span>{!!errors[inputName] && ` - ${errors[inputName].message}`}</Span>
+      </LabelStyles>
 
       <ContainerInput>
         <Icon />
 
-        <InputStyles {...rest} />
+        <InputStyles {...rest} {...register(inputName)} />
       </ContainerInput>
     </Container>
   );

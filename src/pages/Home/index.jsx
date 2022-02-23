@@ -1,11 +1,13 @@
 import { Container, Title, Span, Paragraph, ButtonsContainer } from "./index";
 import Button from "../../components/Button/index.jsx";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ token }) => {
   const history = useHistory();
 
-  return (
+  return token !== "" ? (
+    <Redirect to="/user/dashboard" />
+  ) : (
     <Container>
       <Title>
         do<Span>.</Span>it

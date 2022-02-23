@@ -9,7 +9,7 @@ import {
 import Button from "../Button/index.jsx";
 import { FiClipboard, FiCalendar } from "react-icons/fi";
 
-const Card = ({ header, body }) => {
+const Card = ({ header, body, id, callback }) => {
   return (
     <Container>
       <CardHeader>
@@ -25,7 +25,9 @@ const Card = ({ header, body }) => {
       </CardBody>
 
       <CardFooter>
-        <Button type="button">Concluir</Button>
+        <Button onClick={() => callback(id)} type="button">
+          Concluir
+        </Button>
       </CardFooter>
     </Container>
   );

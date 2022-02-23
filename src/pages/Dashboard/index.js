@@ -2,13 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   background: var(--color-primary);
+  min-height: 100vh;
 `;
 
-export const Search = styled.section`
+export const Header = styled.header`
+  padding: 60px 80px 0 80px;
+`;
+
+export const TimeStamp = styled.time`
+  display: block;
+  font-size: var(--body-1);
+  margin-bottom: 25px;
+`;
+
+export const FormContainer = styled.form`
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  padding-top: 90px;
 
   & > div {
     margin-right: 45px;

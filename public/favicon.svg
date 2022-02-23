@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   sodipodi:docname="desenho.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="53.875"
+     inkscape:cy="-5.375"
+     inkscape:window-width="1360"
+     inkscape:window-height="652"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g57743">
+      <circle
+         style="fill:#f1ede0;fill-opacity:1;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:10"
+         id="path846"
+         cx="24"
+         cy="24"
+         r="24" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono'"
+         x="12.228495"
+         y="21.539858"
+         id="text1680"><tspan
+           sodipodi:role="line"
+           id="tspan1678"
+           x="12.228495"
+           y="21.539858"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono Bold'"
+   id="tspan42418">Do</tspan> </tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;line-height:1.25;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono Bold'"
+         x="13.114572"
+         y="39.585701"
+         id="text11816"><tspan
+           sodipodi:role="line"
+           id="tspan11814"
+           x="13.114572"
+           y="39.585701"><tspan
+   style="font-size:18.6667px"
+   id="tspan54802">i</tspan>t</tspan></text>
+      <circle
+         style="fill:#c85311;fill-opacity:1;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:10"
+         id="path23628"
+         cx="35.599998"
+         cy="20.700001"
+         r="1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:FreeMono"
+       x="29.454391"
+       y="45.461864"
+       id="text38912"><tspan
+         sodipodi:role="line"
+         id="tspan38910"
+         x="29.454391"
+         y="45.461864" /></text>
+  </g>
+</svg>

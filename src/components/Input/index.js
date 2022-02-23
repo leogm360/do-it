@@ -7,8 +7,12 @@ export const Container = styled.div`
 
 export const LabelStyles = styled.div`
   text-align: left;
-  font-size: var(--body-1);
-  margin-bottom: 15px;
+  font-size: var(--caption);
+  margin-bottom: 5px;
+`;
+
+export const Span = styled.span`
+  color: var(--red);
 `;
 
 export const ContainerInput = styled.div`

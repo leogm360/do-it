@@ -5,23 +5,23 @@ import Signup from "../pages/Signup/index.jsx";
 import Login from "../pages/Login/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
 
-const Router = () => {
+const Router = ({ token }) => {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        <Home token={token} />
       </Route>
 
       <Route path="/signup">
-        <Signup />
+        <Signup token={token} />
       </Route>
 
       <Route path="/login">
-        <Login />
+        <Login token={token} />
       </Route>
 
-      <Route path="/dashboard">
-        <Dashboard />
+      <Route path="/user/dashboard">
+        <Dashboard token={token} />
       </Route>
     </Switch>
   );

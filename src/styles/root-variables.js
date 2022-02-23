@@ -20,6 +20,7 @@ export const RootVariables = createGlobalStyle`
         --white: #F5F5F5;
         --orange: #C85311;
         --grey: #4E5555;
+        --red: #FF0000;
 
         --roboto-mono: 'Roboto Mono', sans-serif;
         --pt-serif: 'PT Serif', serif;
