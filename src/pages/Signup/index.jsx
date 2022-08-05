@@ -19,9 +19,11 @@ import Input from "../../components/Input/index.jsx";
 import Button from "../../components/Button/index.jsx";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiLock } from "react-icons/fi";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 const Signup = ({ token }) => {
+  const history = useHistory();
+
   const registerSchema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
     email: yup
@@ -53,9 +55,15 @@ const Signup = ({ token }) => {
 
     api
       .post("/user/register", data)
-      .then((response) => toast.success("Conta criada com sucesso!"))
+      .then((response) => {
+        toast.success(
+          "Conta criada com sucesso! Você será direcionado ao login."
+        );
+
+        setTimeout(() => history.push("/login"), 5000);
+      })
       .catch((error) =>
-        toast.error("O usuário já existe!", {
+        toast.error("Erro ao criar conta! Tente novamente.", {
           theme: "colored",
         })
       );

@@ -9,7 +9,7 @@ import {
 const Input = ({ name, icon: Icon, inputName, register, errors, ...rest }) => {
   return (
     <Container>
-      <LabelStyles>
+      <LabelStyles className="label">
         {name}
         <Span>{!!errors[inputName] && ` - ${errors[inputName].message}`}</Span>
       </LabelStyles>

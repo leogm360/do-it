@@ -3,12 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  width: 100%;
+  max-width: 532px;
+
+  @media only screen and (min-width: 1024px) {
+    max-width: 302px;
+  }
 `;
 
 export const LabelStyles = styled.div`
   text-align: left;
   font-size: var(--caption);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;
 
 export const Span = styled.span`
@@ -39,7 +45,8 @@ export const InputStyles = styled.input`
   font-size: var(--body-1);
   font-family: var(--pt-serif);
   background: var(--white);
-  width: 50px;
+  width: 100%;
+  max-width: 532px;
   padding: 0 10px;
   height: 100%;
   transition: 0.5s;

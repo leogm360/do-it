@@ -18,9 +18,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import { FiMail, FiLock } from "react-icons/fi";
 import Input from "../../components/Input/index.jsx";
 import Button from "../../components/Button/index.jsx";
-import { clear } from "@testing-library/user-event/dist/clear";
 
-const Login = ({ token }) => {
+const Login = ({ token, setToken }) => {
   const history = useHistory();
 
   const loginSchema = yup.object().shape({
@@ -52,7 +51,11 @@ const Login = ({ token }) => {
           { theme: "colored" }
         );
 
-        setTimeout(() => history.push("/user/dashboard"), 5500);
+        setTimeout(() => {
+          setToken(response.data.token);
+
+          history.push("/user/dashboard");
+        }, 5000);
       })
       .catch((error) =>
         toast.error("E-mail ou senhas inválidos!", { theme: "colored" })

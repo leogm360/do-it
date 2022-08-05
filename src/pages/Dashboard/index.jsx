@@ -4,15 +4,25 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import Input from "../../components/Input/index.jsx";
 import Button from "../../components/Button/index.jsx";
 import Card from "../../components/Card/index.jsx";
 import { FiEdit2 } from "react-icons/fi";
-import { Container, Header, TimeStamp, FormContainer, Board } from "./index";
+import {
+  Container,
+  Header,
+  TimeStamp,
+  FormContainer,
+  Board,
+  TimeStampContainer,
+} from "./index";
 import { toast } from "react-toastify";
 
-const Dashboard = ({ token }) => {
+const Dashboard = ({ token, setToken }) => {
+  const history = useHistory();
+
   const [tasks, setTasks] = useState([]);
 
   const taskSchema = yup.object().shape({
@@ -25,82 +35,97 @@ const Dashboard = ({ token }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(taskSchema) });
 
-  const onSubmitForm = (data) => {
-    api
-      .post("/task", data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        toast.success("Tarefa criada com sucesso!", {
-          theme: "colored",
-        });
+  const onSubmitForm = async (data) => {
+    const request = await api.post("/task", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-        handleBoard();
-      })
-      .catch((error) => {
-        toast.error("Não foi possível criar a tarefa, tente novamente!", {
-          theme: "colored",
-        });
+    if (request.status !== 201) {
+      toast.error("Não foi possível criar a tarefa, tente novamente!", {
+        theme: "colored",
       });
+
+      return;
+    }
+
+    toast.success("Tarefa criada com sucesso!", {
+      theme: "colored",
+    });
+
+    getTasks();
   };
 
-  const handleCompletion = (id) => {
-    const filteredTasks = tasks.filter((task) => task._id !== id);
+  const getTasks = async () => {
+    const request = await api.get("/task", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        completed: false,
+      },
+    });
 
-    api
-      .put(
-        `/task/${id}`,
-        {
-          completed: true,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((response) => {
-        toast.success("Tarefa concluida com sucesso!", { theme: "colored" });
+    const data = await request.data.data;
 
-        setTasks(filteredTasks);
-      })
-      .catch((error) =>
-        toast.error("Não foi possível concluir a tarefa, tente novamente.")
-      );
+    if (request.status !== 200) {
+      toast.error("Não foi possível listar as tarefas, tente novamente.");
+
+      return;
+    }
+
+    const formatedTasksDate = data.map((task) => ({
+      ...task,
+      createdAt: new Date(task.createdAt).toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }),
+    }));
+
+    setTasks(formatedTasksDate);
   };
 
-  const handleBoard = () => {
-    api
-      .get("/task", {
+  const handleTasksCompletion = async (id) => {
+    const request = await api.put(
+      `/task/${id}`,
+      {
+        completed: true,
+      },
+      {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        params: {
-          completed: false,
-        },
-      })
-      .then((response) => {
-        const formatedTasks = response.data.data.map((task) => ({
-          ...task,
-          createdAt: new Date(task.createdAt).toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          }),
-        }));
+      }
+    );
 
-        setTasks(formatedTasks);
-      })
-      .catch((error) =>
-        toast.error("Não foi possível listar as tarefas, tente novamente.")
-      );
+    if (request.status !== 200) {
+      toast.error("Não foi possível concluir a tarefa, tente novamente.", {
+        theme: "colored",
+      });
+
+      return;
+    }
+
+    toast.success("Tarefa concluida com sucesso!", { theme: "colored" });
+
+    getTasks();
   };
 
-  useEffect(() => {
-    handleBoard();
-  }, [tasks]);
+  const handleLogout = () => {
+    localStorage.clear();
+
+    toast.success("Logout efetuado com sucesso!", { theme: "colored" });
+
+    setTimeout(() => {
+      setToken("");
+
+      history.push("/login");
+    }, 5000);
+  };
+
+  useEffect(() => getTasks(), []);
 
   return (
     <motion.div
@@ -110,13 +135,19 @@ const Dashboard = ({ token }) => {
     >
       <Container>
         <Header>
-          <TimeStamp>
-            {new Date().toLocaleString("pt-BR", {
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-            })}
-          </TimeStamp>
+          <TimeStampContainer>
+            <TimeStamp>
+              {new Date().toLocaleDateString("pt-BR", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })}
+            </TimeStamp>
+
+            <Button colorSchema="white" onClick={() => handleLogout()}>
+              logout
+            </Button>
+          </TimeStampContainer>
 
           <FormContainer onSubmit={handleSubmit(onSubmitForm)}>
             <Input
@@ -141,16 +172,17 @@ const Dashboard = ({ token }) => {
             {tasks.map((task) => {
               return (
                 <motion.div
+                  key={`${task._id}${task.owner}`}
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
                   <Card
-                    key={task._id}
+                    key={`${task.description}${task.owner}`}
                     header={task.description}
                     body={task.createdAt}
                     id={task._id}
-                    callback={handleCompletion}
+                    callback={handleTasksCompletion}
                   />
                 </motion.div>
               );

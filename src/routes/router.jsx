@@ -5,7 +5,7 @@ import Signup from "../pages/Signup/index.jsx";
 import Login from "../pages/Login/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
 
-const Router = ({ token }) => {
+const Router = ({ token, setToken }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -17,11 +17,11 @@ const Router = ({ token }) => {
       </Route>
 
       <Route path="/login">
-        <Login token={token} />
+        <Login token={token} setToken={setToken} />
       </Route>
 
       <Route path="/user/dashboard">
-        <Dashboard token={token} />
+        <Dashboard token={token} setToken={setToken} />
       </Route>
     </Switch>
   );

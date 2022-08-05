@@ -7,18 +7,18 @@ import { RootVariables } from "./styles/root-variables";
 import Router from "./routes/router.jsx";
 
 const App = () => {
-  const [token] = useState(
-    !!localStorage.getItem("@Doittoken")
-      ? localStorage.getItem("@Doittoken")
-      : ""
-  );
+  const localToken = localStorage.getItem("@Doittoken");
+
+  const [token, setToken] = useState(!!localToken ? localToken : "");
 
   return (
     <BrowserRouter>
       <Reset />
       <RootVariables />
+
       <ToastContainer />
-      <Router token={token} />
+
+      <Router token={token} setToken={setToken} />
     </BrowserRouter>
   );
 };

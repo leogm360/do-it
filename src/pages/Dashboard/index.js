@@ -6,34 +6,57 @@ export const Container = styled.main`
 `;
 
 export const Header = styled.header`
-  padding: 60px 80px 0 80px;
+  padding: 20px 15px;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 20px 60px;
+  }
+`;
+
+export const TimeStampContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 532px;
 `;
 
 export const TimeStamp = styled.time`
   display: block;
   font-size: var(--body-1);
-  margin-bottom: 25px;
 `;
 
 export const FormContainer = styled.form`
   display: flex;
-  align-items: flex-end;
-
-  & > div {
-    margin-right: 45px;
-    width: 500px;
-  }
+  flex-direction: column;
+  gap: 30px;
 
   & > button {
-    padding: 0.65rem 1.5rem;
-    width: 250px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    align-items: flex-end;
+    flex-direction: row;
+
+    & > button {
+      width: 100%;
+      max-height: 60px;
+    }
   }
 `;
 
 export const Board = styled.section`
   display: flex;
   flex-flow: row wrap;
-  margin-top: 100px;
-  padding: 0 80px 100px 80px;
-  gap: 75px 75px;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 50px 50px;
+
+  @media only screen and (min-width: 1024px) {
+    justify-content: start;
+    padding: 0 60px;
+  }
 `;
